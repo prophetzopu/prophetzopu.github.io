@@ -1,0 +1,41 @@
+body
+{
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  margin: auto;
+  overflow: hidden;
+  font-size: 42pt;
+  font-family: 'Yu Gothic';
+  font-weight: 100;
+/*
+  font-family: 'Droid Sans', sans;
+  font-family: 'Press Start 2P', cursive;
+  font-family: 'Shadows Into Light', cursive;
+*/
+  text-shadow: 1px 1px 5px #000000;
+}
+
+label
+{
+  margin: auto;
+  padding: 0px;
+}
+
+div#uptime
+{
+  line-height: 90%;
+  text-align: center;
+  opacity: 0;
+  padding: 20px;
+}
+
+/*Filter styles*/
+.saturate {-webkit-filter: saturate(3);}
+.grayscale {-webkit-filter: grayscale(100%);}
+.contrast {-webkit-filter: contrast(160%);}
+.brightness {-webkit-filter: brightness(0.25);}
+.blur {-webkit-filter: blur(3px);}
+.invert {-webkit-filter: invert(100%);}
+.sepia {-webkit-filter: sepia(100%);}
+.huerotate {-webkit-filter: hue-rotate(180deg);}
+.rss.opacity {-webkit-filter: opacity(50%);}

@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Twitch Uptime Overlay</title>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+<!--
+    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+-->
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src='script.js'></script>
+  </head>
+  <body>
+
+<!--
+    <div id="uptime-label">
+      <label id="word">uptime</label>
+    </div>
+-->
+
+    <div id="uptime">
+      <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
+      <script type="text/javascript">
+        var hoursLabel = document.getElementById("hours");
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
+
+        function setTime()
+        {
+            ++totalSeconds;
+
+            var totalMinutes = parseInt(totalSeconds/60);
+            var totalHours = parseInt(totalMinutes/60);
+
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(totalMinutes%60);
+            hoursLabel.innerHTML = pad(totalHours);
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
+      </script>
+    </div>
+
+  </body>
+</html>
