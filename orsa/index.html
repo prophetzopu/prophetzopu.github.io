@@ -1,0 +1,98 @@
+<html>
+<head>
+<style>
+body {
+  background-color: dimgrey;
+}
+/* simple accordion example from http://www.w3schools.com/howto/howto_js_accordion.asp */
+button.orsa-accordion {
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 60%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition:0.4s;
+}
+button.orsa-accordion.active, button.orsa-accordion:hover {
+  background-color: pink;
+}
+div.orsa-muut-thread {
+  padding: 0;
+  background-color: grey;
+  display: none;
+  width: 60%;
+}
+div.orsa-muut-thread.show {
+  display: block !important;
+}
+textarea.m-postinput {
+  height: 10px;
+}
+div.m-create {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Moot library to allow you to embed it nicely -->
+<script src="//cdn.muut.com/1/moot.min.js"></script>
+
+If you want to just link to channel for the current week:
+<br/>
+
+<button class="orsa-accordion">Week 3 3v3 PC/PS4 Channel</button>
+<!-- This is how to embed a muut channel -->
+<div class="orsa-muut-thread">
+<a class="muut" href="https://muut.com/i/arlchampionships/week-3-3v3-pcps4">Week 3 3v3 PC/PS4 Channel</a>
+</div>
+
+<br/>
+<br/>
+<br/>
+
+If you want to manually link every thread:
+<br/>
+
+<button class="orsa-accordion">Team Rocket vs Team to be Named Later</button>
+<div class="orsa-muut-thread">
+  <a href="https://muut.com/i/arlchampionships#!/week-3-3v3-pcps4:team-rocket-vs-team-to-be-n/comments" class="muut" type="dynamic"></a>
+</div>
+
+<button class="orsa-accordion">Team to be Named Later vs Influence</button>
+<div class="orsa-muut-thread">
+<a href="https://muut.com/i/arlchampionships#!/week-3-3v3-pcps4:team-to-be-named-later-vs-i/comments" class="muut" type="dynamic"></a>
+</div>
+
+<button class="orsa-accordion">Shake and Bake vs Team to be Named Later</button>
+<div class="orsa-muut-thread">
+<a href="https://muut.com/i/arlchampionships#!/week-3-2v2-pcps4:shake-and-bake-vs-team-to-b/comments" class="muut" type="dynamic"></a>
+</div>
+
+<button class="orsa-accordion">Team to be Named Later vs Super Smash Bro's</button>
+<div class="orsa-muut-thread">
+<a href="https://muut.com/i/arlchampionships#!/week-3-2v2-pcps4:team-to-be-named-later-vs-s/comments" class="muut" type="dynamic"></a>
+</div>
+
+<br/>
+<br/>
+Etc.
+
+<!-- Last part of w3schools accordion example -->
+<script>
+var acc = document.getElementsByClassName("orsa-accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+    }
+}
+</script>
+
+</body>
+</html>
