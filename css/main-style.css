@@ -124,7 +124,6 @@ img
 {
   width: 210px;
   height: 231px;
-  opacity: 0.8;
 }
 
 .setupList
@@ -155,7 +154,6 @@ footer
 /* Used to fade in up */
 @-webkit-keyframes fade-in-up {
     from {
-        opacity: 0;
         -webkit-transform: translateY(50px);
         transform: translateY(50px);
     }
@@ -167,7 +165,6 @@ footer
 
 @keyframes fade-in-up {
     from {
-        opacity: 0;
         -webkit-transform: translateY(50px);
         transform: translateY(50px);
     }
@@ -189,7 +186,6 @@ footer
 /* Used to fade in down */
 @-webkit-keyframes fade-in-down {
     from {
-        opacity: 0;
         -webkit-transform: translateY(-50px);
         transform: translateY(-50px);
     }
@@ -201,7 +197,6 @@ footer
 
 @keyframes fade-in-down {
     from {
-        opacity: 0;
         -webkit-transform: translateY(-50px);
         transform: translateY(-50px);
     }
@@ -223,7 +218,6 @@ footer
 /* Used to fade in left */
 @-webkit-keyframes fade-in-left {
     from {
-        opacity: 0;
         -webkit-transform: translateX(50px);
         transform: translateX(50px);
     }
@@ -235,7 +229,6 @@ footer
 
 @keyframes fade-in-left {
     from {
-        opacity: 0;
         -webkit-transform: translateX(50px);
         transform: translateX(50px);
     }
@@ -257,7 +250,6 @@ footer
 /* Used to fade in right */
 @-webkit-keyframes fade-in-right {
     from {
-        opacity: 0;
         -webkit-transform: translateX(-50px);
         transform: translateX(-50px);
     }
@@ -269,7 +261,6 @@ footer
 
 @keyframes fade-in-right {
     from {
-        opacity: 0;
         -webkit-transform: translateX(-50px);
         transform: translateX(-50px);
     }
