@@ -3,8 +3,6 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="google-site-verification" content="f5T-EZSpMC9Sx99g5KBVOBiK78eeMXWYXh1M6p0lOmQ">
-    <link rel="stylesheet" type="text/css" href="/css/main-style.css">
-    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Arimo' rel='stylesheet' type='text/css'>
     <title>ProphetZopu</title>
   </head>
 
@@ -38,6 +36,25 @@
     <footer class="fade-in-up">
       <a class="big-link" href="https://www.mixer.com/ProphetZopu">WATCH PROPHETZOPU ON MIXER</a>
     </footer>
+
+    <!-- Defer loading non essential items, thanks Google https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery -->
+    <noscript id="deferred">
+      <link rel="stylesheet" type="text/css" href="/css/main-style.css">
+      <link href='https://fonts.googleapis.com/css?family=Poiret+One|Arimo' rel='stylesheet' type='text/css'>
+    </noscript>
+    <script>
+      var loadDeferred = function() {
+        var addNode = document.getElementById("deferred");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addNode.textContent;
+        document.body.appendChild(replacement)
+        addNode.parentElement.removeChild(addNode);
+      };
+      var raf = requestAnimationFrame       || mozRequestAnimationFrame ||
+                webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferred, 0); });
+      else window.addEventListener('load', loadDeferred);
+    </script>
 
   </body>
 
