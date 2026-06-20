@@ -1,62 +1,38 @@
-<html>
-
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="google-site-verification" content="f5T-EZSpMC9Sx99g5KBVOBiK78eeMXWYXh1M6p0lOmQ">
-    <title>ProphetZopu</title>
-  </head>
-
-  <body>
-
-    <!-- TODO: Consider using Jekyll for build-time "includes" -->
-
-    <header>
-      <h1>Prophet Zopu</h1>
-    </header>
-
-    <ul>
-     <li><a class="nav-link" href="/index.html">Home</a></li>
-     <li><a class="nav-link" href="/pages/schedule.html">Schedule</a></li>
-     <li><a class="nav-link" href="/pages/setup.html">Setup</a></li>
-     <!--<li><a class="nav-link" href="https://www.prophetzopu.com/pages/not-ready.html">Blog</a></li>-->
-    </ul>
-
-    <div id="content" style="display:inline-block;">
-      <div class="fade-in-right" style="margin-bottom: 2px">
-        <img src="/img/george-face.png"/>
-      </div>
-      <div class="fade-in-left">
-        <h5>
-        <b>About</b><br>
-        <em>My name is George and I'm a software developer. Video games allow me to easily connect with others, whether it's an MMO where we depend on one another or a great single player game which we love to talk about. Live broadcasting technology really interests me, so I stream while I play.</em>
-        </h5>
-      </div>
-    </div>
-
-    <footer class="fade-in-up">
-      <a class="big-link" href="https://www.mixer.com/ProphetZopu">WATCH PROPHETZOPU ON MIXER</a>
-    </footer>
-
-    <!-- Defer loading non essential items, thanks Google https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery -->
-    <noscript id="deferred">
-      <link rel="stylesheet" type="text/css" href="/css/main-style.css">
-      <link href='https://fonts.googleapis.com/css?family=Poiret+One|Arimo' rel='stylesheet' type='text/css'>
-    </noscript>
-    <script>
-      var loadDeferred = function() {
-        var addNode = document.getElementById("deferred");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addNode.textContent;
-        document.body.appendChild(replacement)
-        addNode.parentElement.removeChild(addNode);
-      };
-      var raf = requestAnimationFrame       || mozRequestAnimationFrame ||
-                webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(function() { window.setTimeout(loadDeferred, 0); });
-      else window.addEventListener('load', loadDeferred);
-    </script>
-
-  </body>
-
-</html>
-
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Eco Slop — A quiet corner of the web"><meta name="generator" content="Astro v6.4.8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><title>Eco Slop — Quiet projects and notes</title><script>
+      (function () {
+        var theme = localStorage.getItem('theme') || 'system';
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (theme === 'system' && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/Layout.D2emHpx0.css"></head> <body class="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200"> <header class="border-b border-stone-200 dark:border-stone-800"> <div class="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between"> <a href="/" class="text-xl font-bold tracking-tight text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors">
+Eco Slop
+</a> <div class="flex items-center gap-4"> <nav class="flex gap-6 text-sm font-medium"> <a href="/workbench" class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
+Workbench
+</a> <a href="/journal" class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
+Journal
+</a> </nav> <div class="flex items-center gap-1 pl-4 border-l border-stone-200 dark:border-stone-800"> <button id="theme-system" class="theme-btn p-1.5 rounded-md text-stone-500 dark:text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" data-theme="system" aria-label="System theme"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path> </svg> </button> <button id="theme-light" class="theme-btn p-1.5 rounded-md text-stone-500 dark:text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" data-theme="light" aria-label="Light theme"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path> </svg> </button> <button id="theme-dark" class="theme-btn p-1.5 rounded-md text-stone-500 dark:text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" data-theme="dark" aria-label="Dark theme"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path> </svg> </button> </div> </div> </div> </header> <main class="flex-1">  <div class="max-w-3xl mx-auto px-6 py-16"> <section class="space-y-8"> <h1 class="text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+Welcome to Eco Slop
+</h1> <div class="prose prose-stone max-w-none space-y-6 text-lg leading-relaxed text-stone-700 dark:text-stone-300"> <p>
+Hi, I'm George. By day, I build software for a living. By night, I'm a husband, dad,
+          and someone who likes to step away from the screen to work with my hands or spend
+          time with my family.
+</p> <p> <strong class="text-stone-900 dark:text-stone-100">Eco Slop</strong> is a quiet, zero-cost corner of the web
+          where I share whatever I'm working on or thinking about. You'll find software projects
+          scaffolded with free AI agents, rough DIY fixes from my garage workbench, or just
+          occasional notes from a trip I took.
+</p> <p class="font-medium text-stone-900 dark:text-stone-100">
+No newsletters, no tracking, and no corporate fluff. I'm just working with the garage
+          door open—hope you find something useful.
+</p> </div> </section> <section class="mt-20 grid md:grid-cols-2 gap-8"> <a href="/workbench" class="group block p-8 border border-stone-200 dark:border-stone-700 rounded-lg bg-white dark:bg-stone-900 hover:border-stone-400 dark:hover:border-stone-500 transition-colors"> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🛠️</span> <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 group-hover:text-stone-700 dark:group-hover:text-stone-300">
+Workbench
+</h2> </div> <p class="text-stone-600 dark:text-stone-400 leading-relaxed">
+Projects, prototypes, and practical fixes—both digital and physical. See what's on the bench.
+</p> </a> <a href="/journal" class="group block p-8 border border-stone-200 dark:border-stone-700 rounded-lg bg-white dark:bg-stone-900 hover:border-stone-400 dark:hover:border-stone-500 transition-colors"> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">📝</span> <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100 group-hover:text-stone-700 dark:group-hover:text-stone-300">
+Journal
+</h2> </div> <p class="text-stone-600 dark:text-stone-400 leading-relaxed">
+Casual notes, stories, and observations from life away from the keyboard. Read the latest.
+</p> </a> </section> </div>  </main> <footer class="border-t border-stone-200 dark:border-stone-800 mt-auto"> <div class="max-w-3xl mx-auto px-6 py-8"> <p class="text-sm text-stone-500 dark:text-stone-500">
+&copy; 2026 Eco Slop. No tracking. No ads. Just building stuff.
+</p> </div> </footer> <script type="module">const o="text-stone-900 dark:text-stone-100 bg-stone-200 dark:bg-stone-800";function a(e){localStorage.setItem("theme",e);const c=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",e==="dark"||e==="system"&&c),document.querySelectorAll(".theme-btn").forEach(t=>{o.split(" ").forEach(s=>t.classList.remove(s)),t.dataset.theme===e&&o.split(" ").forEach(s=>t.classList.add(s))})}a(localStorage.getItem("theme")||"system");document.querySelectorAll(".theme-btn").forEach(e=>{e.addEventListener("click",()=>a(e.dataset.theme))});window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{(localStorage.getItem("theme")||"system")==="system"&&a("system")});</script> </body> </html>
