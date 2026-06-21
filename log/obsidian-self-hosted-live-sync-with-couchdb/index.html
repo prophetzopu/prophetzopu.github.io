@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Slop Garden — A quiet corner of the web"><meta name="generator" content="Astro v6.4.8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><title>Self-hosted Obsidian Sync with CouchDB — Slop Garden Log</title><script>
+      (function () {
+        var theme = localStorage.getItem('theme') || 'system';
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (theme === 'system' && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script><link rel="stylesheet" href="/_astro/Layout.C8C6bdfX.css"></head> <body class="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200"> <header class="border-b border-stone-200 dark:border-stone-800"> <div class="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between"> <a href="/" class="text-xl font-bold tracking-tight text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors">
+Slop Garden
+</a> <div class="flex items-center gap-4"> <nav class="flex gap-6 text-sm font-medium"> <a href="/log" class="text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
+Log
+</a> </nav> <div class="flex items-center gap-1 pl-4 border-l border-stone-200 dark:border-stone-800"> <button id="theme-system" class="theme-btn p-1.5 rounded-md text-stone-400 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" data-theme="system" aria-label="System theme"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path> </svg> </button> <button id="theme-light" class="theme-btn p-1.5 rounded-md text-stone-400 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" data-theme="light" aria-label="Light theme"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path> </svg> </button> <button id="theme-dark" class="theme-btn p-1.5 rounded-md text-stone-400 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors" data-theme="dark" aria-label="Dark theme"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path> </svg> </button> </div> </div> </div> </header> <main class="flex-1">  <div class="max-w-3xl mx-auto px-6 py-16"> <a href="/log" class="inline-flex items-center gap-1 text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors mb-8"> <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path> </svg>
+Back to Log
+</a> <article> <header class="mb-8"> <h1 class="text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 mb-3">Self-hosted Obsidian Sync with CouchDB</h1> <div class="flex flex-wrap items-center gap-3"> <time class="text-sm text-stone-500 dark:text-stone-500" datetime="2026-06-20T00:00:00.000Z"> June 19, 2026 </time>  </div> </header> <div class="prose prose-stone dark:prose-invert max-w-none text-stone-700 dark:text-stone-300 leading-relaxed space-y-4"> <p>I’ve been using this setup for a few hours. Already got a couple merge conflicts, which aren’t fun. Might need to tweak some settings. 🤔 Overall, I’m thrilled it’s working.</p>
+<p><a href="https://community.obsidian.md/plugins/obsidian-livesync">Obsidian-Livesync</a> (officially known as <strong>Self-hosted LiveSync</strong>) is a community-developed plugin that runs on all Obsidian-compatible platforms. It syncs your vault across devices without paying for the Obsidian Sync subscription.</p>
+<p>Supported platforms:</p>
+<ul>
+<li><strong>Desktop:</strong> Windows, macOS, and Linux</li>
+<li><strong>Mobile:</strong> iOS and Android</li>
+</ul>
+<p>It connects your devices to your own self-hosted database (CouchDB or S3-compatible storage), or uses experimental peer-to-peer WebRTC.</p>
+<h2 id="database-configuration">Database Configuration</h2>
+<p>I chose CouchDB. Here’s the Docker Compose setup:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#85E89D">services</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">  couchdb</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">    image</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">couchdb:3</span></span>
+<span class="line"><span style="color:#85E89D">    container_name</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">obsidian-livesync-db</span></span>
+<span class="line"><span style="color:#85E89D">    restart</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">unless-stopped</span></span>
+<span class="line"><span style="color:#85E89D">    environment</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">      - </span><span style="color:#9ECBFF">COUCHDB_USER=admin</span></span>
+<span class="line"><span style="color:#E1E4E8">      - </span><span style="color:#9ECBFF">COUCHDB_PASSWORD=your_secure_password_here</span></span>
+<span class="line"><span style="color:#E1E4E8">      - </span><span style="color:#9ECBFF">TZ=America/New_York</span></span>
+<span class="line"><span style="color:#85E89D">    user</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"1000:1000"</span></span>
+<span class="line"><span style="color:#85E89D">    ports</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">      - </span><span style="color:#9ECBFF">"5984:5984"</span></span>
+<span class="line"><span style="color:#85E89D">    volumes</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">      - </span><span style="color:#9ECBFF">/your/path/to/obsidian-livesync/data:/opt/couchdb/data</span></span>
+<span class="line"><span style="color:#E1E4E8">      - </span><span style="color:#9ECBFF">/your/path/to/obsidian-livesync/etc:/opt/couchdb/etc/local.d</span></span></code></pre>
+<p>Replace <code>your_secure_password_here</code> with a strong password — you’ll need it in the plugin config later. Adjust the volume paths to wherever you want CouchDB data stored. Port <code>5984</code> exposes CouchDB to the network; lock it down with a firewall or put it behind a VPN/reverse proxy.</p>
+<h2 id="couchdb-first-time-setup">CouchDB First-Time Setup</h2>
+<p>CouchDB needs <strong>Single Node Mode</strong> and open CORS permissions so Obsidian can talk to it.</p>
+<ol>
+<li>Open <code>http://&#x3C;your server>:5984/_utils/</code> in a browser.</li>
+<li>Log in with your admin credentials.</li>
+<li>Go to <strong>Setup</strong> → <strong>Configure as Single Node</strong> → confirm your password.</li>
+<li>Go to <strong>Databases</strong> → <strong>Create Database</strong> → name it <code>obsidian</code> (Non-partitioned).</li>
+<li>Go to <strong>Settings</strong> → <strong>CORS</strong> → enable it, set Allowed Origins to <code>*</code> (or <code>app://obsidian.md</code> and <code>capacitor://localhost</code>).</li>
+</ol>
+<h2 id="reverse-proxy-or-vpn">Reverse Proxy or VPN</h2>
+<p>Mobile devices require HTTPS. I used Tailscale with Tailscale serve:</p>
+<p><img alt="Tailscale console" loading="lazy" decoding="async" width="3248" height="1942" src="/_astro/tailscale-console.B5LAyruK_1azPE5.webp" srcset=""></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">tailscale</span><span style="color:#9ECBFF"> serve</span><span style="color:#79B8FF"> --service=svc:obsidian-livesync-db</span><span style="color:#79B8FF"> --https=443</span><span style="color:#9ECBFF"> http://localhost:5984</span></span></code></pre>
+<p>Use whatever method you prefer (nginx, Tailscale, etc.) to put HTTPS in front of CouchDB.</p>
+<h2 id="plugin-configuration">Plugin Configuration</h2>
+<p>Configure on Desktop first, then use the QR code for mobile devices.</p>
+<div class="border-l-4 border-amber-500 bg-amber-50 dark:bg-amber-950/50 pl-4 py-3 pr-3 my-6 rounded-r">
+  <p class="font-bold text-amber-800 dark:text-amber-200 text-sm uppercase tracking-wider mb-1">⚠️ Warning</p>
+  <p class="text-amber-700 dark:text-amber-300 leading-relaxed">Back up your vault before setting up the plugin. Misconfiguration can cause note loss or corruption across synced devices.</p>
+</div>
+<ol>
+<li>Open Obsidian Settings → Community Plugins.</li>
+<li>Enable Community Plugins (restart if needed).</li>
+<li>Browse → Search for “Self-hosted LiveSync” → Install → Enable → Open Options.</li>
+</ol>
+<p>In the LiveSync settings, click the <strong>Satellite 🛰️ icon</strong> (Remote Server/Customization tab). Use the manual setup wizard rather than Quick Setup.</p>
+<p><img alt="Config wizard" loading="lazy" decoding="async" width="1132" height="968" src="/_astro/config-wizard._UCuG7WW_1ccx7G.webp" srcset=""></p>
+<p>Choose your encryption preferences. The passphrase here should be different from your CouchDB admin password.</p>
+<p><img alt="Encryption settings" loading="lazy" decoding="async" width="732" height="1436" src="/_astro/encryption-settings.BFjeLvSE_x6Rpa.webp" srcset=""></p>
+<p>Select <strong>CouchDB</strong> as the database type.</p>
+<p><img alt="Database type" loading="lazy" decoding="async" width="1134" height="1092" src="/_astro/db-type.DsfWCw7__ZAuCh5.webp" srcset=""></p>
+<p>Fill in the parameters:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Remote Type</td><td><code>CouchDB</code></td></tr><tr><td>URI</td><td><code>https://&#x3C;your server>:5984</code></td></tr><tr><td>Username</td><td><code>admin</code></td></tr><tr><td>Password</td><td><em>(the password from your docker-compose)</em></td></tr><tr><td>Database name</td><td><code>obsidian</code></td></tr></tbody></table>
+<p><img alt="Connection details" loading="lazy" decoding="async" width="1038" height="1488" src="/_astro/connection-details.BX7DU7yb_1rc3Ir.webp" srcset=""></p>
+<p>Hit <strong>Test Settings and Continue</strong> — everything should light up green. Once connected, you can generate a Setup URI or QR code from the same settings to provision other devices.</p>
+<p>Somewhere around here I got prompted with some spooky dialogs — something like “Compare both and choose the latest” and “Keep files if they were deleted on the remote.” I didn’t screenshot them. This is why I said to make a backup. Good luck 🤞</p>
+<p>Here’s what my remote config looked like after it was set up:</p>
+<p><img alt="Remote config complete" loading="lazy" decoding="async" width="1520" height="1488" src="/_astro/remote-config-done.CgX826c0_2vEK2F.webp" srcset=""></p>
+<h3 id="sync-settings">Sync Settings</h3>
+<p>Syncing won’t start until you configure the sync tab. I went with <strong>on events</strong> and enabled every event type — it’s less battery-intensive than polling and works intuitively across devices.</p>
+<p><img alt="Sync settings" loading="lazy" decoding="async" width="982" height="1216" src="/_astro/sync-settings.BA1U1MkF_1aDIg.webp" srcset=""></p>
+<h3 id="provisioning-other-devices">Provisioning Other Devices</h3>
+<p>Find the QR code / Setup URI buttons in the plugin wizard tab:</p>
+<p><img alt="Setup URI button" loading="lazy" decoding="async" width="1512" height="942" src="/_astro/setup-uri-button.Jzt5t33w_KIk0C.webp" srcset=""></p>
+<p>Or use the command palette:</p>
+<p><img alt="Command palette" loading="lazy" decoding="async" width="392" height="538" src="/_astro/command-palette.BfK1KYa0_1ohDVL.webp" srcset=""></p>
+<p>Search for the command you want:</p>
+<p><img alt="QR code command" loading="lazy" decoding="async" width="936" height="258" src="/_astro/qr-code-command.OEyKbWQh_Z2uMvAl.webp" srcset=""></p>
+<p>Click “For your eyes only” to reveal the QR code, then scan from your mobile device:</p>
+<p><img alt="QR code popup" loading="lazy" decoding="async" width="1130" height="566" src="/_astro/qr-code-popup.f4zZUWog_2bQJYT.webp" srcset=""></p>
+<p>Select the appropriate option on the other device:</p>
+<p><img alt="Scan options" loading="lazy" decoding="async" width="1134" height="974" src="/_astro/scan-options.BLGPS9Jq_108Qtf.webp" srcset=""></p>
+<p>Note: I configured sync settings manually on both devices after scanning, so I’m not sure if those transfer via QR code. You might need to set them manually on each device.</p> </div> </article> </div>  </main> <footer class="border-t border-stone-200 dark:border-stone-800 mt-auto"> <div class="max-w-3xl mx-auto px-6 py-8"> <p class="text-sm text-stone-500 dark:text-stone-500">
+&copy; 2026 George Miller
+</p> </div> </footer> <script type="module">const o="text-stone-900 dark:text-stone-100 bg-stone-200 dark:bg-stone-800";function a(e){localStorage.setItem("theme",e);const c=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",e==="dark"||e==="system"&&c),document.querySelectorAll(".theme-btn").forEach(t=>{o.split(" ").forEach(s=>t.classList.remove(s)),t.dataset.theme===e&&o.split(" ").forEach(s=>t.classList.add(s))})}a(localStorage.getItem("theme")||"system");document.querySelectorAll(".theme-btn").forEach(e=>{e.addEventListener("click",()=>a(e.dataset.theme))});window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{(localStorage.getItem("theme")||"system")==="system"&&a("system")});</script> </body> </html>
